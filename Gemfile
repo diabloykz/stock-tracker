@@ -12,6 +12,11 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views'
 gem 'devise-i18n'
+gem 'font-awesome-rails'
+
+# API pour tracker stock actions
+gem 'iex-ruby-client'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
