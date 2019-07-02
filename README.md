@@ -1,13 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Cette application renvoie traque les données renvoyés par les apis des bourses mondiales et affiche le cours actuel pour chaque monnaie.
 
 * Ruby version
-
-* System dependencies
+ 2.6.3
 
 * Configuration
 
