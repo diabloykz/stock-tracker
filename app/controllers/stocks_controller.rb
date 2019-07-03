@@ -5,7 +5,9 @@ class StocksController < ApplicationController
       @stock = Stock.new_from_lookup(params[:stock])
 
       if @stock
-        render 'users/my_portfolio'
+        respond_to do |format|
+          format.js { render partial: 'users/result' }
+        end
       else
         flash[:danger] = "Vous avez rentré un symbole incorrect"
         redirect_to my_portfolio_path
@@ -15,8 +17,6 @@ class StocksController < ApplicationController
       redirect_to my_portfolio_path
     end
   end
-
-  private
 
 
 end
