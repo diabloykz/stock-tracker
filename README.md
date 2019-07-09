@@ -5,14 +5,12 @@ Cette application traque les données renvoyés par l'api d'IEX et affiche le co
 
 * Installer rvm https://rvm.io/ et installer Ruby 2.6.3 puis les gemmes bundler et rails :<br>
 <p>
-<code>
-rvm install 2.6.3
-gem install bundler
-gem install rails
-</code>
+<code>rvm install 2.6.3</code> <br>
+<code>gem install bundler</code> <br>
+<code>gem install rails</code>
 </p>
 <p>
-copier/cloner ce repository puis :
+copier/cloner ce repository puis : <br>
 <code>
  bundle install
 </code>
