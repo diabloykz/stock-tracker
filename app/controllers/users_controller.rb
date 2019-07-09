@@ -5,6 +5,38 @@ class UsersController < ApplicationController
   end
 
   def my_friends
-  
+    @friendships = current_user.friends
   end
+
+  def search
+    if params[:search_param].blank?
+      flash.now[:danger] = "Vous devez renseigner le champ recherche"
+    else
+      @users = User.search(params[:search_param])
+      @users = current_user.except_current_user(@users)
+      flash.now[:danger] = "Aucun utilisateur ne correspond à vos critères de recherche" if @users.blank?
+    end
+    respond_to do |format|
+      format.js { render partial: 'friends/result' }
+    end
+  end
+
+  def add_friend
+    @friend = User.find(params[:friend])
+    current_user.friendships.build(friend_id: @friend.id)
+
+    if current_user.save
+      flash[:success] = "#{@friend.full_name} a bien été ajouté à vos amis"
+    else
+      flash[:danger] = "Il y a un problème avec votre requête d'amis"
+    end
+
+    redirect_to my_friends_path
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @user_stocks = @user.stocks
+  end
+
 end
